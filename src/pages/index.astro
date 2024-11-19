@@ -15,21 +15,58 @@ import Buttom from "../components/Buttom.astro"
 	<div class="tryllestav">
     <img src="/public/img/tryllestav.png" alt="">
 	</div>
-	<div class="video">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/sYWnJSvv5Pk" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-		</div>
-		  <p>At opholde sig på et hospital er sjældent en ønskværdig oplevelse, især ikke for børn, der i en ung alder
-            bliver
-            konfronteret med sygdom og usikkerhed. Midt i denne virkelighed træder en særlig gruppe ind <p class="tryllekunstner">- Tryllekunstnerne</p>
-        </p>
-        <p>Med deres glimt i øjet og magiske tricks forvandler de hospitalsgangene til et sted fyldt med smil og
-            eventyr, hvor børn
-            og deres familie kan finde et frirum fra bekymringerne</p>
+<div class="container">
+  <!-- Sosiale medier og donasjonsknapp -->
+  <div class="SoMe">
+    <!-- Instagram -->
+    <div class="social-item">
+      <a href="https://www.instagram.com/ditt_brukernavn" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <p>INSTAGRAM</p>
+    </div>
+    <!-- Facebook -->
+    <div class="social-item">
+      <a href="https://www.facebook.com/ditt_brukernavn" target="_blank">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <p>FACEBOOK</p>
+    </div>
+    <!-- LinkedIn -->
+    <div class="social-item">
+      <a href="https://www.linkedin.com/in/ditt_brukernavn" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <p>LINKEDIN</p>
+    </div>
+    <!-- Donasjonsknapp -->
+    <Buttom variant="primary">
+      <h2 class="doner">STØT</h2>
+    </Buttom>
+  </div>
 
-		 <Card />
+  <!-- Video -->
+  <div class="video">
+    <iframe width="800" height="450" src="https://www.youtube.com/embed/sYWnJSvv5Pk" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+	<div class="text-container">
+  <div class="centered-text">
+    <p>
+      At opholde sig på et hospital er sjældent en ønskværdig oplevelse, især ikke for børn, der i en ung alder bliver <br> konfronteret med sygdom og usikkerhed. Midt i denne virkelighed træder en særlig gruppe ind
+      <br>— <strong>Tryllekunstnerne</strong>
+    </p>
+  </div>
+  
+
+        <p>Med deres glimt i øjet og magiske tricks forvandler de hospitalsgangene til et sted fyldt med smil og
+            eventyr, hvor børn <br>
+            og deres familie kan finde et frirum fra bekymringerne</p>
+</div>
+		
         <!-- Start på karusell-galleriet -->
         <div class="carousel-container">
             <button class="carousel-prev" onclick="moveSlide(-1)">&#10094;</button>
@@ -56,23 +93,195 @@ import Buttom from "../components/Buttom.astro"
             </div>
             <button class="carousel-next" onclick="moveSlide(1)">&#10095;</button>
         </div>
-    <p>Tryllekunstnerne er ambassadører for håb og glæde, og de minder os alle om, at magien i virkeligheden kan
-            findes i de
-            øjeblikke, hvor vi mindst venter det.</p>
-        <p>De bringer et budskab om, at selv i en hård tid kan øjeblikke af magi og glæde findes. De viser børnene, at
-            de ikke er
-            glemt, og at der stadig er plads til leg og fantasi, selv på hospitalet.</p>
-
-        <p>Gennem deres optrædener skaber de øjeblikke af forbindelse – ikke kun mellem dem og børnene, men også mellem
-            børnene
-            indbyrdes og deres familier. Et fælles grin eller et forbavset udtryk kan være starten på en samtale og et
-            fællesskab,
-            der hjælper børnene med at føle sig mindre alene.</p>
-			<img src="/public/img/doner-logo.png" alt="">
-			<Buttom variant="primary"><h2 class="doner">STØT<h2/></Button>
+   <div class="text-container">
+  <p>
+    Tryllekunstnerne er ambassadører for håb og glæde, og de minder os alle om, at <strong>magien</strong> i
+    virkeligheden kan findes i de øjeblikke, hvor vi mindst venter det.
+  </p>
+  <p>
+    De bringer et budskab om, at selv i en hård tid kan øjeblikke af magi og glæde findes. De viser børnene, at de
+    ikke er glemt, og at der stadig er plads til <strong>leg</strong> og fantasi, selv på hospitalet.
+  </p>
+  <p>
+    Gennem deres optrædener skaber de øjeblikke af forbindelse – ikke kun mellem dem og børnene, men også mellem
+    børnene indbyrdes og deres familier. Et fælles grin eller et forbavset udtryk kan være starten på en samtale
+    og et fællesskab, der hjælper børnene med at føle sig mindre alene.
+  </p>
+</div>
+<div class="donation-container">
+  <!-- Donasjonslogo -->
+  <img src="/public/img/doner-logo.png" alt="Doner logo" class="donation-logo">
+  <!-- Astro-knapp -->
+  <Buttom variant="primary">
+    <h2 class="doner-text">STØT</h2>
+  </Buttom>
+</div>
   </main>
 </Layout>
 <style>
+	/* Donasjon-container */
+.donation-container {
+  display: flex;
+  gap: 20px; /* Avstand mellom logo og knapp */
+  align-items: center; /* Juster logo og knapp vertikalt */
+  text-align: center;
+  
+}
+
+/* Donasjon-logo */
+.donation-logo {
+  width: 50px; /* Størrelse på logo */
+  height: 50px;
+  object-fit: contain; /* Sørger for proporsjonal skalering */
+}
+
+/* Astro-knapp styling */
+.doner-text {
+  margin: 0;
+  font-size: 18px; /* Juster tekststørrelse */
+  font-weight: bold; /* Gjør teksten fet */
+  color: #FFFFFF; /* Hvit tekst inni knappen */
+}
+/* Generell styling for siden */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #001F54; /* Mørk blå bakgrunn */
+  color: #FFFFFF; /* Hvit tekst */
+}
+
+/* Container for alt innhold */
+.container {
+  display: flex;
+  justify-content: space-between; /* Plasserer SoMe og videoen på hver sin side */
+  align-items: flex-start; /* Toppjusterer innholdet */
+  padding: 20px;
+  gap: 40px; /* Avstand mellom SoMe og video */
+}
+
+/* Sosiale medier-seksjon */
+.SoMe {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Juster alt til venstre */
+  gap: 20px;
+}
+
+/* Sosiale medier-elementer */
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #F9EFC7; /* Lys gyllen farge */
+}
+
+.social-item i {
+  font-size: 30px;
+  color: #F9EFC7;
+}
+
+.social-item p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Donasjonsknapp */
+.doner {
+  margin-top: 20px; /* Gir avstand mellom knappen og SoMe-ikonene */
+  text-align: left; /* Sørger for at knappen justeres til venstre */
+}
+
+/* Video-seksjon */
+.video iframe {
+  border-radius: 15px; /* Avrundede hjørner */
+  border: 3px solid #F9EFC7; /* Lys gyllen ramme */
+}
+
+/* Generell styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #001F54; /* Mørk blå bakgrunn */
+  color: #FFFFFF; /* Hvit tekst */
+}
+
+/* Tekst-container */
+.text-container {
+  max-width: 800px; /* Begrens bredde for tekst */
+  margin: 50px auto; /* Sentrer containeren horisontalt og legg til toppmargin */
+  padding: 20px; /* Innvendig padding */
+  line-height: 1.8; /* Øk linjeavstand for bedre lesbarhet */
+  text-align: left; /* Juster teksten til venstre */
+  font-size: 1.5rem;
+}
+
+/* Fremhevede ord */
+.text-container strong {
+  color: #FFD700; /* Gylden farge for fremhevede ord */
+}
+
+/* Avstand mellom avsnitt */
+.text-container p {
+  margin-bottom: 20px; /* Avstand mellom avsnitt */
+}
+
+/* Dekorative elementer (valgfrie) */
+.text-container::before {
+  content: "✨";
+  display: block;
+  font-size: 40px;
+  text-align: center;
+  color: #FFD700; /* Gylden farge */
+  margin-bottom: 20px;
+}
+
+.text-container::after {
+  content: "✨";
+  display: block;
+  font-size: 40px;
+  text-align: center;
+  color: #FFD700; /* Gylden farge */
+  margin-top: 20px;
+}
+
+
+
+
+/* Video-seksjon */
+.video {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+iframe {
+  border-radius: 15px;
+  border: 3px solid #F9EFC7; /* Lys gyllen ramme rundt videoen */
+}
+
+
+
+
+	.centered-text {
+  display: flex;
+  justify-content: center; /* Horisontal midtstilling */
+  align-items: center; /* Vertikal midtstilling */
+  text-align: center; /* Tekstjustering */
+  padding: 50px; /* Luft rundt teksten */
+  height: 100%; /* Fyller hele høyden av siden */
+}
+
+/* Valgfri styling for stjerner */
+.centered-text::before, .centered-text::after {
+ 
+  margin: 0 20px;
+  font-size: 20px;
+}
 	.doner {
 		font-size: 1.5rem;
 		font-weight: bolder;

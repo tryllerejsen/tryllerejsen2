@@ -5,17 +5,17 @@
         <div class="SoMe" style="display: flex; gap: 10px; align-items: center;">
             <!-- LinkedIn -->
             <a href="https://www.linkedin.com/in/ditt_brukernavn" target="_blank" style="text-decoration: none;">
-                <i class="fab fa-linkedin" style="font-size: 30px; color: #f9efc7;;"></i>
+                <i class="fab fa-linkedin" style="font-size: 70px; color: #f9efc7;;"></i>
             </a>
             <p>LINKEDIN</p>
             <!-- Facebook -->
             <a href="https://www.facebook.com/ditt_brukernavn" target="_blank" style="text-decoration: none;">
-                <i class="fab fa-facebook" style="font-size: 30px; color: #f9efc7;;"></i>
+                <i class="fab fa-facebook" style="font-size: 70px; color: #f9efc7;;"></i>
             </a>
             <p>FACEBOOK</p>
             <!-- Instagram -->
             <a href="https://www.instagram.com/ditt_brukernavn" target="_blank" style="text-decoration: none;">
-                <i class="fab fa-instagram" style="font-size: 30px; color: #f9efc7;;"></i>
+                <i class="fab fa-instagram" style="font-size: 70px; color: #f9efc7;;"></i>
             </a>
             <p>INSTAGRAM</p>
 
@@ -24,17 +24,57 @@
     </footer>
     <style>
         footer {
+   background: transparent; /* Footer bakgrunn forblir transparent */
+  padding: 40px 20px; /* Luft rundt innholdet */
+  text-align: center;
+  color: #f9efc7; /* Lys farge på tekst */
+}
+
+/* SoMe container */
+.SoMe {
+  display: flex;
+  justify-content: center; /* Sentrer innhold horisontalt */
+  gap: 50px; /* Avstand mellom sosiale medier */
+}
+
+/* Sosiale medie-elementer */
+.social-item {
+  display: flex;
+  flex-direction: column; /* Stabler ikon og tekst */
+  align-items: center; /* Sentrer ikon og tekst horisontalt */
+  color: #f9efc7; /* Lys tekst */
+}
+
+/* Ikoner */
+.social-item i {
+  font-size: 50px; /* Størrelse på ikonene */
+  margin-bottom: 10px; /* Avstand mellom ikon og tekst */
+  color: #f9efc7; /* Samme farge som tekst */
+}
+
+/* Tekst under ikon */
+.social-item p {
+  font-size: 18px; /* Tekststørrelse */
+  font-weight: bold; /* Gjør teksten fet */
+  margin: 0; /* Fjern standard margin */
+  text-transform: uppercase; /* Gjør teksten store bokstaver */
+}
+        footer {
   background: transparent; /* Footer bakgrunn forblir transparent */
   text-align: center;
 }
 .SoMe{
       align-items: center;
-      color: #f9efc7;
+      color: #B6E7FF;
+      font-size: 50px
 }
 h1 {
   color: #f7afff;
 }
 h2 {
   color: #f9efc7;
+   font-family: "Staatliches", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
     </style>
