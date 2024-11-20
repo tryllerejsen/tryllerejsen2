@@ -1,25 +1,44 @@
-    <header>
-         <img src="/img/logo.png" alt="">
+<header>
+  <img src="/img/logo.png" alt="Logo">
+  <div class="stjerne">
+    <img src="/img/stjerne1.svg" alt="Stjerne">
+  </div>
+  <h1>TRYLLEREJSEN</h1>
+  <h2>Magiske oplevelser skaber glade hjerter</h2>
+</header>
+    <style>header {
+  position: relative; /* Viktig for at stjernen kan posisjoneres relativt til header */
+  text-align: center;
+  padding: 20px; /* Valgfri padding for luft rundt innholdet */
+}
 
-        <h1>TRYLLEREJSEN</h1>
-        <h2>Magiske oplevelser skaber glade hjerter</h2>
-
-    </header>
-    <style>
-        header{ 
-            text-align: center;
-        }
+/* Overskriftstilpasninger */
 h1 {
   color: #f7afff;
   font-family: monospace;
   font-size: 10rem;
-   
+  margin: 0;
+  line-height: 1; /* Gjør det lettere å plassere stjernen */
 }
+
 h2 {
   color: #f9efc7;
-   font-family: "Staatliches", sans-serif;
+  font-family: "Staatliches", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 4rem;
+  margin-top: 10px;
+}
+
+/* Stjerne-styling */
+.stjerne {
+  position: absolute; /* Lar oss plassere stjernen hvor som helst innen header */
+  top: 30%; /* Juster vertikal posisjon */
+  left: 5%; /* Juster horisontal posisjon */
+}
+
+.stjerne img {
+  width: 50px; /* Juster størrelsen på stjernen */
+  height: auto;
 }
     </style>
