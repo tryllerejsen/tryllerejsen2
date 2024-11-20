@@ -1,7 +1,5 @@
 ---
 ---
-
-
 <div id="comet-section">
     <div id="comet-container">
         <img src="/img/komet.svg" alt="Comet" id="comet" />
@@ -21,7 +19,7 @@
   #comet-container {
     position: absolute;
     top: 50%;
-    left: 100%; /* Start utenfor høyre kant */
+    left: -200px; /* Start utenfor venstre kant */
     width: 200px; /* Økt størrelse på kometen */
     height: 200px; /* Økt størrelse på kometen */
     transform: translateY(-50%);
@@ -53,9 +51,9 @@
             1
           );
 
-          const cometMaxMovement = window.innerWidth + 400; // Fra høyre til venstre
+          const cometMaxMovement = window.innerWidth + 400; // Fra venstre til høyre
           const cometPosition =
-            (1 - cometScrollFraction) * cometMaxMovement - 100;
+            cometScrollFraction * cometMaxMovement - 200; // Juster startposisjon for venstre
 
           cometContainer.style.left = `${cometPosition}px`;
         }

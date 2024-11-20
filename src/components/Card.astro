@@ -1,75 +1,75 @@
 ---
 ---
-  <!-- Måneseksjonen -->
-    <div id="moon-section">
-        <div id="moon-container">
-            <img src="/img/mane.svg" alt="Moon" id="moon">
-        </div>
+<!-- Måneseksjonen -->
+<div id="moon-section">
+    <div id="moon-container">
+        <img src="/img/mane.svg" alt="Moon" id="moon">
     </div>
+</div>
+
 <style>
-	/* styles.css */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #0b1e31;
-  color: white;
-  overflow-x: hidden;
-}
+  /* styles.css */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0b1e31;
+    color: white;
+    overflow-x: hidden;
+  }
 
-#moon-section {
-  position: relative;
-  height: 400px; /* Høyden på området hvor månen beveger seg */
+  #moon-section {
+    position: relative;
+    height: 400px; /* Høyden på området hvor månen beveger seg */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+  #moon-container {
+    position: absolute;
+    top: 50%;
+    left: 100%; /* Start utenfor høyre kant */
+    width: 100px; /* Månens størrelse */
+    height: 100px;
+    transform: translateY(-50%);
+  }
 
-#moon-container {
-  position: absolute;
-  top: 50%;
-  left: -100px; /* Start utenfor venstre kant */
-  width: 100px; /* Månens størrelse */
-  height: 100px;
-  transform: translateY(-50%);
-}
+  #moon {
+    width: 100%;
+    height: auto;
+  }
 
-#moon {
-  width: 100%;
-  height: auto;
-}
-
-.content {
-  padding: 20px;
-  text-align: center;
-  font-size: 18px;
-}
+  .content {
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+  }
 </style>
 
-	<script>
-		let moonContainer = document.getElementById("moon-container");
-let moonSection = document.getElementById("moon-section");
+<script>
+  let moonContainer = document.getElementById("moon-container");
+  let moonSection = document.getElementById("moon-section");
 
-window.addEventListener("scroll", () => {
-  // Få dimensjonene til måneseksjonen i forhold til visningen
-  let sectionRect = moonSection.getBoundingClientRect();
+  window.addEventListener("scroll", () => {
+    // Få dimensjonene til måneseksjonen i forhold til visningen
+    let sectionRect = moonSection.getBoundingClientRect();
 
-  // Sjekk om måneseksjonen er synlig tidligere (start når toppen er 300px over bunnen av skjermen)
-  if (sectionRect.top < window.innerHeight + 300 && sectionRect.bottom > -300) {
-    // Beregn progresjon av scroll innenfor måneseksjonen
-    let scrollFraction = 1 - (sectionRect.bottom - 300) / (sectionRect.height + 300);
+    // Sjekk om måneseksjonen er synlig tidligere (start når toppen er 300px over bunnen av skjermen)
+    if (sectionRect.top < window.innerHeight + 300 && sectionRect.bottom > -300) {
+      // Beregn progresjon av scroll innenfor måneseksjonen
+      let scrollFraction =
+        1 - (sectionRect.bottom - 300) / (sectionRect.height + 300);
 
-    // Begrens scrollFraction til 0 - 1
-    scrollFraction = Math.min(Math.max(scrollFraction, 0), 1);
+      // Begrens scrollFraction til 0 - 1
+      scrollFraction = Math.min(Math.max(scrollFraction, 0), 1);
 
-    // Beveg månen fra venstre ytterkant (-100px) til høyre ytterkant (window.innerWidth + 100)
-    let maxMovement = window.innerWidth + 400; // Inkluder månens bredde for full reise
-    let newPosition = scrollFraction * maxMovement - 100;
+      // Beveg månen fra høyre ytterkant (window.innerWidth + 100) til venstre ytterkant (-100px)
+      let maxMovement = window.innerWidth + 400; // Inkluder månens bredde for full reise
+      let newPosition = (1 - scrollFraction) * maxMovement - 100;
 
-    // Oppdater månens posisjon
-    moonContainer.style.left = `${newPosition}px`;
-  }
-});
-
-	</script>
+      // Oppdater månens posisjon
+      moonContainer.style.left = `${newPosition}px`;
+    }
+  });
+</script>
