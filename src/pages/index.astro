@@ -14,7 +14,7 @@ import Buttom from "../components/Buttom.astro"
   <main>
    
 <div class="tryllestav">
-  <img src="/public/img/tryllestav.png" alt="Tryllestav">
+  <img src="/img/tryllestav.png" alt="Tryllestav">
 </div>
 <div class="stjerner">
   <img src="/img/stjerne1.svg" alt="Stjerne 1" class="stjerne stjerne-1">
@@ -165,24 +165,33 @@ import Buttom from "../components/Buttom.astro"
   <img src="/img/stjerne1.svg" alt="Stjerne 12" class="stjerne stjerne-12">
   <img src="/img/stjerne2.svg" alt="Stjerne 13" class="stjerne stjerne-13">
 </div>
-<div class="donation-container">
-  <!-- Donasjonslogo -->
-  <img src="/public/img/doner-logo.png" alt="Doner logo" class="donation-logo">
-  <!-- Astro-knapp -->
-  <Buttom variant="primary">
-    <h2 class="doner-text">STØT</h2>
-  </Buttom>
-  <img src="/img/stjerne1.svg" alt="">
+
+<div class="donation-wrapper">
+  <div class="donation-container">
+    <!-- Donasjonslogo -->
+    <img src="/img/doner-logo.png" alt="Doner logo" class="donation-logo">
+    <!-- Astro-knapp -->
+    <Buttom variant="primary">
+      <h2 class="doner-text">STØT</h2>
+    </Buttom>
+  <div class="svg-container">
+    <img src="/img/stjerne1.svg" alt="Stjerne 11" class="stjerne-doner">
+    </div>
+  </div>
+
 </div>
+
   </main>
 </Layout>
 <style>
+
   /* SVG-container */
 .svg-container {
   position: relative;
   width: 100%;
   padding: 20px;
   overflow: visible; /* Sørger for at SVG-er utenfor containeren vises */
+   z-index: 0; /* Sørg for at bildet ligger bak scrollbaren */
 }
 
 /* Generell styling for stjerner */
@@ -190,6 +199,7 @@ import Buttom from "../components/Buttom.astro"
   position: absolute;
   width: 25px; /* Standard størrelse for stjerner */
   height: auto;
+   z-index: 0; /* Sørg for at bildet ligger bak scrollbaren */
 }
 
 /* Individuell plassering av stjerner */
@@ -267,12 +277,14 @@ import Buttom from "../components/Buttom.astro"
   top: 30%;
   left: 5%;
   transform: rotate(-30deg); /* Gir kometen en skrå posisjon */
+   z-index: 0; /* Sørg for at bildet ligger bak scrollbaren */
 }
   /* Stjerne-container */
 .stjerne-container {
   position: relative;
   width: 100%;
   height: 400px; /* Tilpasset området for stjerner */
+   z-index: 0; /* Sørg for at bildet ligger bak scrollbaren */
 }
 
 /* Felles styling for stjerner */
@@ -326,6 +338,7 @@ import Buttom from "../components/Buttom.astro"
   height: auto;
   bottom: 10%; /* Plasser månen nederst */
   right: 5%; /* Flytt månen til høyre */
+   z-index: 0; /* Sørg for at bildet ligger bak scrollbaren */
 }
   /* Stjerner-container */
 /* Container for stjerner */
@@ -334,12 +347,14 @@ import Buttom from "../components/Buttom.astro"
   width: 100%;
   height: 600px; /* Tilpass høyden på stjerneområdet */
   overflow: visible; /* Tillater stjernene å gå utenfor containeren */
+   z-index: 0; /* Sørg for at bildet ligger bak scrollbaren */
 }
 
 /* Felles styling for stjernene */
 .stjerne, .stjerne1 {
   position: absolute; /* Lar oss plassere stjernene individuelt */
   height: auto; /* Beholder proporsjoner */
+   z-index: 0; /* Sørg for at bildet ligger bak scrollbaren */
 }
 
 /* Størrelsesdefinisjoner */
@@ -412,29 +427,39 @@ import Buttom from "../components/Buttom.astro"
   top: 25%;
   right: 40%; /* Plasser stjernen til høyre */
 }
-	/* Donasjon-container */
-.donation-container {
-  display: flex;
-  gap: 20px; /* Avstand mellom logo og knapp */
-  align-items: center; /* Juster logo og knapp vertikalt */
-  text-align: center;
-  
-}
+ /* Wrapper for å sentrere donasjonselementet */
+  .donation-wrapper {
+    display: flex;
+    justify-content: center; /* Sentrer horisontalt */
+    align-items: center; /* Sentrer vertikalt */
+    height: 100vh; /* Fyll hele høyden av skjermen */
+  }
 
-/* Donasjon-logo */
-.donation-logo {
-  width: 50px; /* Størrelse på logo */
-  height: 50px;
-  object-fit: contain; /* Sørger for proporsjonal skalering */
-}
+  .donation-container {
+    display: flex;
+    gap: 20px; /* Avstand mellom logo og knapp */
+    align-items: center; /* Vertikal sentrering */
+    text-align: center;
+  }
 
-/* Astro-knapp styling */
-.doner-text {
-  margin: 0;
-  font-size: 18px; /* Juster tekststørrelse */
-  font-weight: bold; /* Gjør teksten fet */
-  color: #FFFFFF; /* Hvit tekst inni knappen */
-}
+  /* Donasjon-logo */
+  .donation-logo {
+    width: 100px; /* Størrelse på logo */
+    height: 70px;
+    object-fit: contain; /* Sørger for proporsjonal skalering */
+  }
+
+  /* Astro-knapp styling */
+  .doner-text {
+    margin: 0;
+    font-size: 18px; /* Juster tekststørrelse */
+    font-weight: bold; /* Gjør teksten fet */
+    color: #FFFFFF; /* Hvit tekst inni knappen */
+  }
+  .stjerne-doner{
+    width: 40px;
+
+  }
 /* Generell styling for siden */
 body {
   margin: 0;
