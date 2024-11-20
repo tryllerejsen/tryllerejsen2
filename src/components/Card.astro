@@ -1,30 +1,75 @@
 ---
 ---
-<div class="SoMe" style="display: flex; gap: 10px; align-items: center;">
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/ditt_brukernavn" target="_blank" style="text-decoration: none;">
-                <i class="fab fa-linkedin" style="font-size: 30px; color: #f9efc7;;"></i>
-            </a>
-            <p>LINKEDIN</p>
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/ditt_brukernavn" target="_blank" style="text-decoration: none;">
-                <i class="fab fa-facebook" style="font-size: 30px; color: #f9efc7;;"></i>
-            </a>
-            <p>FACEBOOK</p>
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/ditt_brukernavn" target="_blank" style="text-decoration: none;">
-                <i class="fab fa-instagram" style="font-size: 30px; color: #f9efc7;;"></i>
-            </a>
-            <p>INSTAGRAM</p>
-			<div class="doner">
-            <img src="/public/img/doner-logo.png" alt="">
-</div>
+  <!-- Måneseksjonen -->
+    <div id="moon-section">
+        <div id="moon-container">
+            <img src="/img/mane.svg" alt="Moon" id="moon">
         </div>
-		<style>
-		.SoMe{
-			margin-left: 20px;
-		}	
-		.doner {
-			
-		}
-		</style>
+    </div>
+<style>
+	/* styles.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0b1e31;
+  color: white;
+  overflow-x: hidden;
+}
+
+#moon-section {
+  position: relative;
+  height: 400px; /* Høyden på området hvor månen beveger seg */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#moon-container {
+  position: absolute;
+  top: 50%;
+  left: -100px; /* Start utenfor venstre kant */
+  width: 100px; /* Månens størrelse */
+  height: 100px;
+  transform: translateY(-50%);
+}
+
+#moon {
+  width: 100%;
+  height: auto;
+}
+
+.content {
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+</style>
+
+	<script>
+		let moonContainer = document.getElementById("moon-container");
+let moonSection = document.getElementById("moon-section");
+
+window.addEventListener("scroll", () => {
+  // Få dimensjonene til måneseksjonen i forhold til visningen
+  let sectionRect = moonSection.getBoundingClientRect();
+
+  // Sjekk om måneseksjonen er synlig tidligere (start når toppen er 300px over bunnen av skjermen)
+  if (sectionRect.top < window.innerHeight + 300 && sectionRect.bottom > -300) {
+    // Beregn progresjon av scroll innenfor måneseksjonen
+    let scrollFraction = 1 - (sectionRect.bottom - 300) / (sectionRect.height + 300);
+
+    // Begrens scrollFraction til 0 - 1
+    scrollFraction = Math.min(Math.max(scrollFraction, 0), 1);
+
+    // Beveg månen fra venstre ytterkant (-100px) til høyre ytterkant (window.innerWidth + 100)
+    let maxMovement = window.innerWidth + 400; // Inkluder månens bredde for full reise
+    let newPosition = scrollFraction * maxMovement - 100;
+
+    // Oppdater månens posisjon
+    moonContainer.style.left = `${newPosition}px`;
+  }
+});
+
+	</script>

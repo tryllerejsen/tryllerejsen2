@@ -4,6 +4,7 @@
 import Layout from "../layout/Layout.astro";
 import "../styles/global.css";
 import Card from "../components/Card.astro";
+import Acard from "../components/Acard.astro";
 import Buttom from "../components/Buttom.astro"
 // import Hero from "../components/Hero.astro";
 
@@ -83,12 +84,8 @@ import Buttom from "../components/Buttom.astro"
   <img src="/img/stjerne1.svg" alt="Stjerne 3" class="stjerne stjerne3">
   
   
-    <!-- Måneseksjonen -->
-    <div id="moon-section">
-        <div id="moon-container">
-            <img src="/img/mane.svg" alt="Moon" id="moon">
-        </div>
-    </div>
+  <Card />
+    
 
  
   <img src="/img/stjerne1.svg" alt="Stjerne 4" class="stjerne stjerne4">
@@ -139,9 +136,9 @@ import Buttom from "../components/Buttom.astro"
       virkeligheden kan findes i de øjeblikke, hvor vi mindst venter det.
     </p>
   </div>
-  
+  <Acard />
   <div class="svg-container">
-  <img src="/img/komet.svg" alt="Komet" class="komet">
+  
   <img src="/img/stjerne1.svg" alt="Stjerne 3" class="stjerne stjerne-33">
   <img src="/img/stjerne1.svg" alt="Stjerne 4" class="stjerne stjerne-44">
   <img src="/img/stjerne2.svg" alt="Stjerne 5" class="stjerne stjerne-55">
@@ -679,71 +676,12 @@ iframe {
 }
 
 
-/* styles.css */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #0b1e31;
-  color: white;
-  overflow-x: hidden;
-}
 
-#moon-section {
-  position: relative;
-  height: 400px; /* Høyden på området hvor månen beveger seg */
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-#moon-container {
-  position: absolute;
-  top: 50%;
-  left: -100px; /* Start utenfor venstre kant */
-  width: 100px; /* Månens størrelse */
-  height: 100px;
-  transform: translateY(-50%);
-}
-
-#moon {
-  width: 100%;
-  height: auto;
-}
-
-.content {
-  padding: 20px;
-  text-align: center;
-  font-size: 18px;
-}
 
 
 </style>
 <script>
-let moonContainer = document.getElementById("moon-container");
-let moonSection = document.getElementById("moon-section");
 
-window.addEventListener("scroll", () => {
-  // Få dimensjonene til måneseksjonen i forhold til visningen
-  let sectionRect = moonSection.getBoundingClientRect();
-
-  // Sjekk om måneseksjonen er synlig tidligere (start når toppen er 300px over bunnen av skjermen)
-  if (sectionRect.top < window.innerHeight + 300 && sectionRect.bottom > -300) {
-    // Beregn progresjon av scroll innenfor måneseksjonen
-    let scrollFraction = 1 - (sectionRect.bottom - 300) / (sectionRect.height + 300);
-
-    // Begrens scrollFraction til 0 - 1
-    scrollFraction = Math.min(Math.max(scrollFraction, 0), 1);
-
-    // Beveg månen fra venstre ytterkant (-100px) til høyre ytterkant (window.innerWidth + 100)
-    let maxMovement = window.innerWidth + 400; // Inkluder månens bredde for full reise
-    let newPosition = scrollFraction * maxMovement - 100;
-
-    // Oppdater månens posisjon
-    moonContainer.style.left = `${newPosition}px`;
-  }
-});
 
 
 

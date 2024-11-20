@@ -1,0 +1,65 @@
+---
+---
+
+
+<div id="comet-section">
+    <div id="comet-container">
+        <img src="/img/komet.svg" alt="Comet" id="comet" />
+    </div>
+</div>
+
+<style>
+  #comet-section {
+    position: relative;
+    height: 400px; /* Høyden på området hvor kometen beveger seg */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #comet-container {
+    position: absolute;
+    top: 50%;
+    left: 100%; /* Start utenfor høyre kant */
+    width: 200px; /* Økt størrelse på kometen */
+    height: 200px; /* Økt størrelse på kometen */
+    transform: translateY(-50%);
+  }
+
+  #comet {
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+<script>
+  let cometContainer = null;
+  let cometSection = null;
+
+  window.addEventListener('load', () => {
+    cometContainer = document.getElementById('comet-container');
+    cometSection = document.getElementById('comet-section');
+
+    window.addEventListener('scroll', () => {
+      if (cometContainer && cometSection) {
+        const cometRect = cometSection.getBoundingClientRect();
+        if (cometRect.top < window.innerHeight + 300 && cometRect.bottom > -300) {
+          const cometScrollFraction = Math.min(
+            Math.max(
+              1 - (cometRect.bottom - 300) / (cometRect.height + 300),
+              0
+            ),
+            1
+          );
+
+          const cometMaxMovement = window.innerWidth + 400; // Fra høyre til venstre
+          const cometPosition =
+            (1 - cometScrollFraction) * cometMaxMovement - 100;
+
+          cometContainer.style.left = `${cometPosition}px`;
+        }
+      }
+    });
+  });
+</script>
